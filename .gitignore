@@ -1,0 +1,37 @@
+# Build directories
+build/
+install/
+log/
+
+# Common ROS build artifacts
+build_*/
+install_*/
+log_*/
+
+# Rosbag files
+Rosbag/
+
+# Ignore specific packages
+src/isaac_ros_nitros/
+
+# Ignore assets
+isaac_ros_assets/ 
+src/realsense-ros/
+
+# Ignore additional directories
+src/xacro/
+bearcar_vslam_data/
+bearcar_vslam_data2/
+
+# Ignore ROS bag files and large data files
+*.db3
+*.bag
+*.mcap
+**/test_cases/rosbags/
+
+# Ignore other files
+CACHED
+exporting
+naming
+transferring
+
