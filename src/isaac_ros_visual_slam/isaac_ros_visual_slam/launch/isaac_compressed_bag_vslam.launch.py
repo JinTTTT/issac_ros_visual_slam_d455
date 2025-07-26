@@ -69,7 +69,7 @@ def generate_launch_description():
                     'accel_noise_density': 0.001862,
                     'accel_random_walk': 0.003,
                     'calibration_frequency': 200.0,
-                    'img_jitter_threshold_ms': 20.0
+                    'img_jitter_threshold_ms': 34.0
                     }],
         remappings=[('stereo_camera/left/image', '/camera/infra1/image_rect_raw'),
                     ('stereo_camera/left/camera_info', '/camera/infra1/camera_info'),
@@ -90,7 +90,7 @@ def generate_launch_description():
     )
 
     return launch.LaunchDescription([
-        image_decompress_left,      # 作为独立节点启动
-        image_decompress_right,     # 作为独立节点启动
+        image_decompress_left,      
+        image_decompress_right,     
         visual_slam_launch_container
     ])

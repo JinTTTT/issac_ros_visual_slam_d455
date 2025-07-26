@@ -33,7 +33,7 @@ def generate_launch_description():
                 'enable_color': False,
                 'enable_depth': False,
                 'depth_module.emitter_enabled': 0,
-                'depth_module.profile': '640x360x90',
+                'depth_module.profile': '640x360x60',
                 'enable_gyro': True,
                 'enable_accel': True,
                 'gyro_fps': 200,
@@ -48,13 +48,16 @@ def generate_launch_description():
         package='isaac_ros_visual_slam',
         plugin='nvidia::isaac_ros::visual_slam::VisualSlamNode',
         parameters=[{
-                    'denoise_input_images': False,
+                    'denoise_input_images': False, # low light condition, can set to True, but it will cost more cpu and gpu
                     'rectified_images': True,
                     'enable_debug_mode': False,
                     'debug_dump_path': '/tmp/cuvslam',
+
+                    # these are just for visualization, to save cpu and gpu, they can be set to False
                     'enable_slam_visualization': True,
                     'enable_landmarks_view': True,
                     'enable_observations_view': True,
+
                     'map_frame': 'map',
                     'odom_frame': 'odom',
                     'base_frame': 'camera_link',
