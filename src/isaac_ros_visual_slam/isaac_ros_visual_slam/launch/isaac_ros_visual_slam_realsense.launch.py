@@ -33,11 +33,11 @@ def generate_launch_description():
                 'enable_color': False,
                 'enable_depth': False,
                 'depth_module.emitter_enabled': 0,
-                'depth_module.profile': '640x360x60',
+                'depth_module.profile': '424x240x60',  # Lower resolution for better performance
                 'enable_gyro': True,
                 'enable_accel': True,
-                'gyro_fps': 200,
-                'accel_fps': 200,
+                'gyro_fps': 100,  # Reduced from 200 for performance
+                'accel_fps': 100,  # Reduced from 200 for performance  
                 'unite_imu_method': 2,
                 'initial_reset': True
         }]
@@ -53,22 +53,24 @@ def generate_launch_description():
                     'enable_debug_mode': False,
                     'debug_dump_path': '/tmp/cuvslam',
 
-                    # these are just for visualization, to save cpu and gpu, they can be set to False
-                    'enable_slam_visualization': True,
-                    'enable_landmarks_view': True,
-                    'enable_observations_view': True,
+                    # Disable all visualization for performance optimization
+                    'enable_slam_visualization': False,  # Disabled for performance
+                    'enable_landmarks_view': False,      # Disabled for performance
+                    'enable_observations_view': False,   # Disabled for performance
 
                     'map_frame': 'map',
                     'odom_frame': 'odom',
-                    'base_frame': 'camera_link',
+                    'base_frame': 'base_link',
                     'input_imu_frame': 'camera_gyro_optical_frame',
+                    'publish_odom_to_base_tf': True,   # Keep odom->base_link tf
+                    'publish_map_to_odom_tf': False,   # Disable map->odom tf (let SLAM Toolbox handle this)
                     'enable_imu_fusion': True,
                     'gyro_noise_density': 0.000244,
                     'gyro_random_walk': 0.000019393,
                     'accel_noise_density': 0.001862,
                     'accel_random_walk': 0.003,
                     'calibration_frequency': 200.0,
-                    'img_jitter_threshold_ms': 34.00
+                    'img_jitter_threshold_ms': 100.00  # Increased threshold to reduce frame drops
                     }],
         remappings=[('stereo_camera/left/image', 'camera/infra1/image_rect_raw'),
                     ('stereo_camera/left/camera_info', 'camera/infra1/camera_info'),
