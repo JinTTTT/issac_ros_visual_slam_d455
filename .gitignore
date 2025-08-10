@@ -13,6 +13,8 @@ Rosbag/
 
 # Ignore specific packages
 src/isaac_ros_nitros/
+src/isaac_ros_benchmark/
+src/ros2_benchmark/
 
 # Ignore assets
 isaac_ros_assets/ 

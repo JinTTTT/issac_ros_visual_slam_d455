@@ -63,7 +63,7 @@ def generate_launch_description():
                     'base_frame': 'base_link',
                     'input_imu_frame': 'camera_gyro_optical_frame',
                     'publish_odom_to_base_tf': True,   # Keep odom->base_link tf
-                    'publish_map_to_odom_tf': False,   # Disable map->odom tf (let SLAM Toolbox handle this)
+                    'publish_map_to_odom_tf': True,    # Enable map->odom tf (Isaac VSLAM provides localization)
                     'enable_imu_fusion': True,
                     'gyro_noise_density': 0.000244,
                     'gyro_random_walk': 0.000019393,
