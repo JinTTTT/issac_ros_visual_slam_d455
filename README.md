@@ -28,7 +28,42 @@ The project runs within the official Isaac ROS container environment with:
 - **RealSense Firmware**: 5.13.0.50
 - **RealSense ROS Driver**: 4.51.1
 
+## Installation
+
+Before using the system, you need to build the required packages using colcon. Build the following packages individually:
+
+```bash
+# Build Isaac ROS Common package
+colcon build --packages-select isaac_ros_common
+
+# Build Isaac ROS Nitros
+colcon build --packages-select isaac_ros_nitros
+
+# Build Isaac ROS Visual SLAM package
+colcon build --packages-select isaac_ros_visual_slam
+```
+
+> **Note**: The `nvblox` package can be skipped during compilation as it is intended for future 2D costmap conversion functionality, which is not required for current operations. However, the other three packages must be successfully compiled for the system to function properly.
+
+After building, source the workspace:
+
+```bash
+source install/setup.bash
+```
+
 ## Usage
+
+### Container Setup
+
+On the BearCar platform, first enter the Isaac ROS container:
+
+```bash
+# Start the Isaac ROS container
+docker start -ai isaac_ros_dev-aarch64-container
+
+# For additional terminals, use:
+docker exec -it isaac_ros_dev-aarch64-container /bin/bash
+```
 
 ### Basic Launch
 
