@@ -15,6 +15,7 @@ Rosbag/
 src/isaac_ros_nitros/
 src/isaac_ros_benchmark/
 src/ros2_benchmark/
+/benchmark_results/
 
 # Ignore assets
 isaac_ros_assets/ 
