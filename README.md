@@ -22,7 +22,103 @@ This workspace provides visual SLAM functionality combining Isaac ROS Visual SLA
 
 The project runs within the official Isaac ROS container environment with:
 
-- **ROS Distribution**: ROS2 Humble
+- **Container ROS Distribution**: ROS2 Humble
+- **Host ROS Distribution**: ROS2 Foxy
 - **librealsense**: v2.55.1
 - **RealSense Firmware**: 5.13.0.50
 - **RealSense ROS Driver**: 4.51.1
+
+## Usage
+
+### Basic Launch
+
+Start RealSense camera and Visual SLAM:
+
+```bash
+ros2 launch isaac_ros_visual_slam isaac_ros_visual_slam_realsense.launch.py
+```
+
+### Performance Optimization for Nav2
+
+For Nav2 integration, optimize performance by adjusting these parameters:
+
+**RealSense Node:**
+```python
+'depth_module.profile': '424x240x60'  # Lower resolution for better performance
+```
+
+**Visual SLAM Node:**
+```python
+'enable_slam_visualization': False    # Disabled for performance
+'enable_landmarks_view': False        # Disabled for performance
+'enable_observations_view': False     # Disabled for performance
+'denoise_input_images': False         # Set to True for low light (higher CPU/GPU cost)
+```
+
+### Frame Drop Reduction
+
+To reduce frame drops, adjust the jitter threshold:
+
+```python
+'img_jitter_threshold_ms': 100.00     # Increased threshold to reduce frame drops
+```
+
+> **Warning**: Higher threshold may impact accuracy.
+
+### IMU Fusion
+
+Enable IMU fusion for improved tracking:
+
+```python
+'enable_imu_fusion': True
+```
+
+For cameras with IMU drift, tune noise parameters:
+
+```python
+'gyro_noise_density': 0.000244
+'gyro_random_walk': 0.000019393
+'accel_noise_density': 0.001862
+'accel_random_walk': 0.003
+```
+
+### Frame Configuration
+
+**With Nav2 (complete TF tree):**
+```python
+'base_frame': 'base_link'
+```
+
+**Standalone VSLAM:**
+```python
+'base_frame': 'camera_link'
+```
+
+> **Note**: Using incorrect base_frame will cause TF tree errors.
+
+### Rosbag Playback
+
+Test SLAM with recorded data:
+
+```bash
+ros2 launch isaac_ros_visual_slam isaac_ros_visual_slam_with_bag.launch.py
+```
+
+Or run bag playback separately, then launch SLAM:
+
+```bash
+ros2 launch isaac_ros_visual_slam isaac_ros_visual_slam.launch.py
+```
+
+For compressed image rosbags:
+
+```bash
+ros2 launch isaac_ros_visual_slam isaac_compressed_bag_vslam.launch.py
+```
+
+### Standalone Components
+
+**RealSense camera only:**
+```bash
+ros2 launch isaac_ros_visual_slam isaac_only_realsense.launch.py
+```
