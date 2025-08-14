@@ -12,8 +12,8 @@ log_*/
 Rosbag/
 
 # Ignore specific packages
-src/isaac_ros_nitros/
 src/isaac_ros_benchmark/
+src/isaac_ros_nvblox/
 src/ros2_benchmark/
 /benchmark_results/
 
