@@ -63,6 +63,9 @@ docker start -ai isaac_ros_dev-aarch64-container
 
 # For additional terminals, use:
 docker exec -it isaac_ros_dev-aarch64-container /bin/bash
+
+# Don't forget to source the workspace in each terminal:
+source install/setup.bash
 ```
 
 ### Basic Launch
@@ -71,6 +74,12 @@ Start RealSense camera and Visual SLAM:
 
 ```bash
 ros2 launch isaac_ros_visual_slam isaac_ros_visual_slam_realsense.launch.py
+```
+
+To visualize the SLAM data in RViz:
+
+```bash
+rviz2 -d src/isaac_ros_visual_slam/isaac_ros_visual_slam/rviz/default.cfg.rviz
 ```
 
 ### Performance Optimization for Nav2
