@@ -2,6 +2,17 @@
 
 This project implements visual SLAM capabilities on NVIDIA Jetson Xavier using Isaac ROS 2.1 and RealSense D455 camera for localization and navigation applications.
 
+## Demos
+Two short clips (stored in `demo/`) render inline below. If your browser blocks playback, use the download link in the player menu.
+
+<p align="center">
+	<video src="https://github.com/JinTTTT/issac_ros_visual_slam_d455/raw/master/demo/demo%201.mov" width="720" controls loop muted playsinline></video>
+</p>
+
+<p align="center">
+	<video src="https://github.com/JinTTTT/issac_ros_visual_slam_d455/raw/master/demo/demo%202.mov" width="720" controls loop muted playsinline></video>
+</p>
+
 ## Platform Requirements
 
 - **Hardware**: NVIDIA Jetson Xavier AGX
@@ -52,17 +63,6 @@ source install/setup.bash
 ```
 
 ## Usage
-
-### Demos
-Below are two short demo clips stored in the `demo/` folder so they render inline on GitHub. Use the playback controls to view them.
-
-<p align="center">
-	<video src="demo/demo%201.mov" width="640" controls loop muted playsinline></video>
-</p>
-
-<p align="center">
-	<video src="demo/demo%202.mov" width="640" controls loop muted playsinline></video>
-</p>
 
 ### Container Setup
 
