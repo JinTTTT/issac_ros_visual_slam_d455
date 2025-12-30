@@ -3,14 +3,13 @@
 This project implements visual SLAM capabilities on NVIDIA Jetson Xavier using Isaac ROS 2.1 and RealSense D455 camera for localization and navigation applications.
 
 ## Demos
-Two short clips rendered inline below.
+
+Click the thumbnail below to watch the demo video on YouTube:
 
 <p align="center">
-  <video src="demo/demo%201.mov" width="720" controls muted></video>
-</p>
-
-<p align="center">
-  <video src="demo/demo%202.mov" width="720" controls muted></video>
+  <a href="https://www.youtube.com/watch?v=x1UaJ2XyrkE">
+    <img src="https://img.youtube.com/vi/x1UaJ2XyrkE/maxresdefault.jpg" alt="Isaac ROS Visual SLAM Demo" width="720">
+  </a>
 </p>
 
 ## Platform Requirements
