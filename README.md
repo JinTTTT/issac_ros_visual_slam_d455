@@ -53,6 +53,17 @@ source install/setup.bash
 
 ## Usage
 
+### Demos
+Below are two short demo clips stored in the `demo/` folder so they render inline on GitHub. Use the playback controls to view them.
+
+<p align="center">
+	<video src="demo/demo%201.mov" width="640" controls loop muted playsinline></video>
+</p>
+
+<p align="center">
+	<video src="demo/demo%202.mov" width="640" controls loop muted playsinline></video>
+</p>
+
 ### Container Setup
 
 On the BearCar platform, first enter the Isaac ROS container:
